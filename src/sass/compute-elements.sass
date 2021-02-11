@@ -1,0 +1,132 @@
+section#compute-elements
+    @include flexCenter
+    flex-direction: column    
+    div.wrap
+        margin-top: 50px
+        width: 750px
+        position: relative
+        height: 80vh
+        overflow-x: hidden
+        //
+        span.small
+            font-size: .6rem
+        //
+        h3.section-explanation
+            @include textUS
+            letter-spacing: 2px
+            position: relative
+            width: 100%
+            margin: 0 0 20px 30px
+            &::after
+                content: ''
+                position: absolute
+                top: 50%
+                left: -30px
+                width: 15px
+                height: 15px
+                background-color: $mainColor
+                transform: translateY(-50%) skewY(10deg)
+        //
+        div.swap
+            position: absolute
+            display: flex
+            width: 200%
+            height: 100%
+            top: 0
+            left: 0
+            transition: transform .3s
+            &.active
+                transform: translateX(-50%)
+            //
+            //
+            //
+            section#result
+                @include innerScrollbar
+                overflow-y: scroll
+                overflow-x: hidden
+                width: 50%
+                padding-right: 20px
+                display: flex
+                flex-direction: column
+                section#sum-wrap
+                    div.results
+                        display: flex
+                        div.table-wrap
+                            @include innerScrollbar
+                            width: 35%
+                            max-height: 200px
+                            padding-right: 20px
+                            overflow-y: scroll
+                            table
+                                @include textUS
+                                letter-spacing: 2px
+                                width: 100%
+                                thead
+                                    background-color: rgba(0, 206, 201,.25)
+
+                                tr
+                                    background-color: rgba(0, 206, 201,.05)
+                                    transition: background-color .3s
+                                    &:hover
+                                        background-color: rgba(0, 206, 201,.20)
+                                    td
+                                        text-align: center
+                        div.info
+                            flex-grow: 1
+                            display: flex
+                            flex-direction: column
+                            align-items: center
+                            p
+                                @include textUS
+                                width: 70%
+                                margin: 0
+                                @include spacingVertical
+                                span.color
+                                    color: $mainColor
+                                    font-weight: bold
+            //
+            //
+            //
+            section#form
+                width: 50%
+                padding: 5px 10px
+                section.content
+                    @include flexCenter
+                    @include spacingVertical
+                    flex-direction: column
+                    width: 100%
+                    border-radius: 10px
+                    padding: 20px
+                    div.form-field
+                        @include spacingVertical(10px)
+                        display: flex
+                        align-items: center
+                        width: 100%
+                        label
+                            @include textUS
+                            margin: 0 10px 0 0
+                            width: 300px
+                            text-align: right
+                            padding-right: 5%
+                            box-sizing: border-box
+                            &::first-letter
+                                text-transform: uppercase
+                        select,input
+                            @include coloredFocus
+                            padding: 2px 5px
+                            font-size: 1rem
+                            letter-spacing: 2px
+                            border: 2px solid $mainColor
+                            border-radius: 5px
+                button.compute
+                    @include buttonStyles
+                    @include smoothHover
+                    text-transform: uppercase
+                section#type-selector
+                    button
+                        @include spacingHorizontal
+                        @include buttonStyles
+                        &.type-selected
+                            @include smoothHoverReversed
+                        &.type-unselected
+                            @include smoothHover
